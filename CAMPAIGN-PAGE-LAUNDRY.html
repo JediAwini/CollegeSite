@@ -3,7 +3,7 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Laundry Shop - ₱1Solution Campaign</title>
+<title>Laundry Shop Renovation - ₱1Solution Campaign</title>
 <style>
   *{margin:0;
     padding:0;
@@ -289,6 +289,10 @@
     .layout{flex-direction:column;}
   }
   
+  /* Table styles */
+  .my-table{width:100%; margin-bottom:20px; border-collapse:separate; border-spacing:0 1px; border-radius:5px;}
+  .my-table th, .my-table td{border:2px solid #2c5aa0; border-radius:12px; padding:8px;}
+  .my-table th{background:#2c5aa0; color:white;}
 </style>
 </head>
 <body>
@@ -309,27 +313,56 @@
 <div class='layout'>
   <div class='left-column'>
     <img src='Images/laundry.jpg' class='campaign-img'>
+    <h1 class='campaign-title'>Laundry Shop Renovation</h1>
 
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-            In a busy area, people washed clothes with strong chemicals that hurt the earth and polluted rivers.
-            <br>
-            An eco-friendly laundry shop opened, using machines with natural soaps that save water and don't pollute.
-            <br>
-            Families get clean clothes cheaply and safely, so kids avoid rashes, and the air stays fresh.
-            <br>
-            Workers reuse water and recycle bags, making the shop a green place where people save money and help the planet.
-            <br>
-            Everyone feels good about keeping the earth clean.
-      </p>  
+            For years, the local laundry shop has been a go-to spot for busy families and individuals in need of clean clothes without the hassle. But with outdated machines, high energy costs, and limited eco-friendly options, it's struggling to keep up with modern demands. This shop not only provides essential services but also supports the community by offering affordable, sustainable laundry solutions.
+            <br><br>
+            This renovation campaign aims to upgrade the laundry shop into a state-of-the-art, eco-conscious facility. By investing in energy-efficient machines, green detergents, and a fresh interior, we can create a space that saves water, reduces pollution, and offers better service to the neighborhood.
+      </p>
+
+<h3 style="margin-top:20px;color:#2c5aa0;">What is the campaign about?</h3>
+<p>
+This campaign seeks to renovate an existing laundry shop to make it more efficient, environmentally friendly, and customer-oriented. The focus is on replacing old equipment with modern, water-saving machines, introducing eco-friendly products, and improving the overall customer experience to attract more business and support local jobs.
+</p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">What will you do with the funds? (₱15,000 Budget)</h3>
+      <p>
+        - ₱5,000 — New energy-efficient washing and drying machines<br>
+        - ₱4,000 — Eco-friendly detergents and supplies<br>
+        - ₱3,000 — Interior upgrades and customer seating<br>
+        - ₱2,000 — Marketing and signage<br>
+        - ₱1,000 — Staff training on sustainable practices
+      </p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">Where will it be located?</h3>
+      <p>
+      The renovation will take place at the community laundry shop in **Barangay San Jose**, serving residents and families from nearby areas.
+      </p>
+      <h3 style="margin-top:20px;color:#2c5aa0;">Where will the funds go? (₱15,000 Budget)</h3>
+      <table class='my-table'>
+        <thead>
+          <tr><th>Item</th><th>Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>New energy-efficient washing and drying machines</td><td>₱5,000</td></tr>
+          <tr><td>Eco-friendly detergents and supplies</td><td>₱4,000</td></tr>
+          <tr><td>Interior upgrades and customer seating</td><td>₱3,000</td></tr>
+          <tr><td>Marketing and signage</td><td>₱2,000</td></tr>
+          <tr><td>Staff training on sustainable practices</td><td>₱1,000</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">Location</h3>
+      <p>The renovation will take place at the community laundry shop in <strong>Barangay San Jose</strong>, serving residents and families from nearby areas.</p>
     </div>
   </div>
 
   <div class='right-column'>
-    <h2 class='campaign-title'>Laundry Shop</h2>
     <div class='progress-box'>
-      <strong id='raised-label'>₱2863 raised of 10000 goal</strong>
+      <strong id='raised-label'>₱0 raised of 15000 goal</strong>
       <div class='progress-bar'>
         <div class='progress-fill' id='fill'></div>
       </div>
@@ -351,9 +384,9 @@
   <div class="creator-box-content">
     <img src="Images/profile.jpg" class="creator-photo">
     <div>
-      <p><strong>Name:</strong> Juan Dela Cruz</p>
-      <p><strong>Email:</strong> juan@example.com</p>
-      <p><strong>About:</strong> Laundry Shop</p>
+      <p><strong>Name:</strong> Maria Santos</p>
+      <p><strong>Email:</strong> maria.santos@example.com</p>
+      <p><strong>About:</strong> Laundry shop owner dedicated to sustainable and community-focused services.</p>
     </div>
   </div>
 </div>
@@ -417,8 +450,8 @@
     if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
 
     // STATE
-    let amountRaised = 3972 ;
-    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
+    let amountRaised = 0 ;
+    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 15000;
 
     // ELEMENTS
     const modal = document.getElementById('auth-modal');
@@ -476,83 +509,3 @@
     if (registerSubmit) registerSubmit.addEventListener('click', () => {
       const name = document.getElementById('register-name')?.value || 'User';
       const email = document.getElementById('register-email')?.value || '';
-      saveUser(name, email);
-      if (modal) modal.style.display = 'none';
-    });
-
-    // SIDEBAR ACCOUNT
-    if (authLink) authLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (localStorage.getItem('userEmail')) {
-        accName.textContent = localStorage.getItem('userName') || '';
-        accEmail.textContent = localStorage.getItem('userEmail') || '';
-        if (sidebar) sidebar.classList.add('open');
-      } else {
-        if (modal) modal.style.display = 'flex';
-      }
-    });
-
-    document.querySelectorAll('.close-sidebar').forEach(el => el.addEventListener('click', () => { if (sidebar) sidebar.classList.remove('open'); }));
-    const logoutBtn = document.getElementById('logout-btn');
-    if (logoutBtn) logoutBtn.addEventListener('click', () => {
-      localStorage.removeItem('userName');
-      localStorage.removeItem('userEmail');
-      if (sidebar) sidebar.classList.remove('open');
-      updateNav();
-    });
-
-    function updateNav() {
-      if (authLink) authLink.textContent = localStorage.getItem('userEmail') ? 'My Account' : 'Login / Register';
-    }
-    updateNav();
-
-    // DONATION SYSTEM
-    function renderDonations(donations) {
-      if (!donationList) return;
-      donationList.innerHTML = `<h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>`;
-      for (let [name, amount] of Object.entries(donations)) {
-        const div = document.createElement('div');
-        div.className = 'donation-entry';
-        div.innerHTML = `<span>${name}</span><span>₱${amount}</span>`;
-        donationList.append(div);
-      }
-    }
-
-    function addDonation(name, amount) {
-      let donations = JSON.parse(localStorage.getItem(`donations_${campaignID}`)) || {};
-      donations[name] = (donations[name] || 0) + amount;
-      localStorage.setItem(`donations_${campaignID}`, JSON.stringify(donations));
-      amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
-      renderDonations(donations);
-      updateGoal();
-      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-    }
-
-    function updateGoal() {
-      const label = document.getElementById('raised-label');
-      if (label) label.textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
-      if (fillEl) fillEl.style.width = Math.min(100, (amountRaised / goalAmount) * 100) + '%';
-      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-      localStorage.setItem('progress_' + campaignID, String(amountRaised));
-    }
-
-    // INIT
-    (function init(){
-      let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
-      if (!saved || Object.keys(saved).length === 0) {
-        const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
-        localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
-        saved = filler;
-      }
-      renderDonations(saved);
-      amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
-      updateGoal();
-    })();
-
-  })();
-</script>
-
-</body>
-</html>
